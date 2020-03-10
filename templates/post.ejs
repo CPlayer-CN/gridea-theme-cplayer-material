@@ -22,16 +22,8 @@
             <div class="mdui-card-header-subtitle"><%- themeConfig.siteDescription %></div>
         </div>
     </section>
-    <% if (post.nextPost && !post.hideInList) { %>
-        <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="<%= post.nextPost.link %>">
-                <h3 class="post-title">
-                <%= post.nextPost.title %>
-                </h3>
-            </a>
-        </div>  
-    <% } %>
+    <% if (post.prevPost && !post.hideInList) { %><a href="<%= post.prevPost.link %>" mdui-tooltip="{content: '上一篇', position: 'right'}"><i class="mdui-icon material-icons">arrow_back</i><%= post.prevPost.title %></a><% } %>
+    <% if (post.nextPost && !post.hideInList) { %><a href="<%= post.nextPost.link %>" mdui-tooltip="{content: '上一篇', position: 'left'}"><i class="mdui-icon material-icons">arrow_back</i><%= post.nextPost.title %></a><% } %>
 
       <% if (typeof commentSetting !== 'undefined' && commentSetting.showComment) { %>
             <% if (commentSetting.commentPlatform === 'gitalk') { %>
