@@ -1,0 +1,34 @@
+#index .mdui-card-media {
+    background-size: cover;
+    height: 35vh;
+}
+#post .mdui-card-media {
+    background-size: cover;
+    height: 50vh;
+}
+
+.mdui-theme-layout-dark #drawer {
+    background-color: #424242;
+}
+#drawer {
+    background-color: #fff;
+}
+
+.mdui-theme-layout-dark a.mdui-chip {
+    color: #fff;
+}
+a.mdui-chip {
+    color: #000;
+}
+
+.mdui-theme-layout-dark .mdui-card-media,
+.mdui-theme-layout-dark img {
+    filter:brightness(.8);
+}
+
+.mdui-theme-layout-dark .pagination-container a {
+    color: #fff;
+}
+.pagination-container a:before {
+    width: 0;
+}
