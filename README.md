@@ -13,3 +13,13 @@
 - 返回顶部。
 - 异步页面加载。
 - 图片懒加载。
+
+# 参考、使用或引用
+- [MDUI](https://www.mdui.org)
+- 文章图片 [Photo by Jefferson Santos on Unsplash](https://unsplash.com/photos/9SoCnyQmkzI)
+- https://flyhigher.top
+- https://blog.lim-light.com
+- https://typo.sofi.sh
+- https://github.com/imhanjie/gridea-theme-pure/blob/master/templates/includes
+- https://www.mdui.org/docs
+- https://getmdl.io/templates/blog/entry.html
