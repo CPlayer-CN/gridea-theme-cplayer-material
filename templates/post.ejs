@@ -23,7 +23,7 @@
         </div>
     </section>
     <% if (post.prevPost && !post.hideInList) { %><a href="<%= post.prevPost.link %>" mdui-tooltip="{content: '上一篇', position: 'right'}"><i class="mdui-icon material-icons">arrow_back</i><%= post.prevPost.title %></a><% } %>
-    <% if (post.nextPost && !post.hideInList) { %><a href="<%= post.nextPost.link %>" mdui-tooltip="{content: '上一篇', position: 'left'}"><i class="mdui-icon material-icons">arrow_back</i><%= post.nextPost.title %></a><% } %>
+    <% if (post.nextPost && !post.hideInList) { %><a href="<%= post.nextPost.link %>" mdui-tooltip="{content: '上一篇', position: 'left'}" class="mdui-float-right"><%= post.nextPost.title %><i class="mdui-icon material-icons">arrow_forward</i></a><% } %>
 
       <% if (typeof commentSetting !== 'undefined' && commentSetting.showComment) { %>
             <% if (commentSetting.commentPlatform === 'gitalk') { %>
