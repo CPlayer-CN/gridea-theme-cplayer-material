@@ -1,0 +1,19 @@
+<% let years = []; posts.forEach((item) => { const year = item.date.substring(0, 4); if (!years.includes(year)) { years.push(year); } }); %>
+
+<section class="mdui-card">
+    <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">归档</div>
+    </div>
+    <div class="mdui-card-content">
+        <% years.forEach(function(year) { %>
+            <h2 class="mdui-typo-display-1"><%- year %></h2>
+            <% posts.forEach(function(post) { %>
+                <%if (post.date.indexOf(year) !== -1) { %>
+                    <article class="post">
+                        <a href="<%= post.link %>" class="mdui-typo-title-opacity"><%= post.title %></a> - <span class="mdui-typo-body-1-opacity"><%= post.dateFormat %></span>
+                    </article>
+                <% } %>
+            <% }); %>
+        <% }); %>
+    </div>
+</section>

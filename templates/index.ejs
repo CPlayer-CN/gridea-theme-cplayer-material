@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<%- include('./includes/head', { siteTitle: themeConfig.siteName }) %>
+</head>
+<body id="index" class="mdui-appbar-with-toolbar mdui-theme-primary-blue-grey mdui-theme-accent-blue mdui-theme-layout-dark">
+<%- include('./includes/header') %>
+
+<main class="mdui-container mdui-typo mdui-m-t-2">
+    <%- include('./includes/post-list') %>
+    <%- include('./includes/pagination') %>
+</main>
+
+<%- include('./includes/footer') %>
+
+</body>
+</html>

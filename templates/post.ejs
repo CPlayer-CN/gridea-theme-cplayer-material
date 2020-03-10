@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<%- include('./includes/head', { siteTitle: `${post.title} | ${themeConfig.siteName}` }) %>
+<link rel="stylesheet" href="<%= themeConfig.domain %>/media/css/github-gist.min.css">
+<link rel="stylesheet" href="<%= themeConfig.domain %>/media/css/railscasts.min.css">
+</head>
+<body id="post" class="mdui-appbar-with-toolbar mdui-theme-primary-blue-grey mdui-theme-accent-blue mdui-theme-layout-dark">
+<%- include('./includes/header') %>
+
+<main class="mdui-container mdui-typo mdui-m-t-2">
+    <section class="mdui-card">
+        <% if (post.feature) { %><div class="mdui-card-media" style="background-image: url('<%= post.feature %>');"></div><% } %>
+        <div class="mdui-card-primary">
+            <div class="mdui-card-primary-title"><%= post.title %></div>
+            <div class="mdui-card-primary-subtitle">发布于 <%= post.dateFormat %>，包含标签 <% post.tags.forEach(function(tag) { %><a href="<%= tag.link %>" class="post-tags"># <%= tag.name %></a><% }); %>。</div>
+        </div>
+        <div class="mdui-card-content"><%- post.content %></div>
+        <div class="mdui-card-header">
+            <img class="mdui-card-header-avatar" src="/images/avatar.png"/>
+            <div class="mdui-card-header-title"><%= themeConfig.siteName %></div>
+            <div class="mdui-card-header-subtitle"><%- themeConfig.siteDescription %></div>
+        </div>
+    </section>
+    <% if (post.nextPost && !post.hideInList) { %>
+        <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="<%= post.nextPost.link %>">
+                <h3 class="post-title">
+                <%= post.nextPost.title %>
+                </h3>
+            </a>
+        </div>  
+    <% } %>
+
+      <% if (typeof commentSetting !== 'undefined' && commentSetting.showComment) { %>
+            <% if (commentSetting.commentPlatform === 'gitalk') { %>
+                <%- include('./includes/gitalk') %>
+            <% } %>
+
+            <% if (commentSetting.commentPlatform === 'disqus') { %>
+                <%- include('./includes/disqus') %>
+            <% } %>
+      <% } %>
+</main>
+
+<%- include('./includes/footer') %>
+
+</body>
+</html>

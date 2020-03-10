@@ -1,0 +1,4 @@
+<div class="pagination-container">
+    <% if (pagination.prev) { %><a href="<%= pagination.prev %>" mdui-tooltip="{content: '上一页', position: 'right'}"><i class="mdui-icon material-icons">arrow_back</i></a><% } %>
+    <% if (pagination.next) { %><a href="<%= pagination.next %>" mdui-tooltip="{content: '下一页', position: 'left'}" class="mdui-float-right"><i class="mdui-icon material-icons">arrow_forward</i></a><% } %>
+</div>

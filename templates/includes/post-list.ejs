@@ -1,0 +1,12 @@
+<% posts.forEach(function(post) { %>
+    <section class="mdui-card mdui-m-b-2">
+        <% if (post.feature) { %>
+        <div class="mdui-card-media" style="background-image: url(<%= post.feature %>);"></div>
+        <% } %>
+        <div class="mdui-card-primary">
+            <a href="<%= post.link %>" class="mdui-card-primary-title"><%= post.title %></a>
+            <div class="mdui-card-primary-subtitle"><%= post.dateFormat %></div>
+        </div>
+        <div class="mdui-card-content"><%- post.description %></div>
+    </section>
+<% }); %>

@@ -1,0 +1,18 @@
+<header role="banner">
+    <div class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-shadow-0">
+        <div class="mdui-toolbar">
+            <button class="mdui-btn mdui-btn-icon" id="menu" mdui-drawer="{target:'#drawer',overlay:true,swipe:true}"><i class="mdui-icon material-icons">menu</i></button>
+            <a href="<%= themeConfig.domain %>" class="mdui-typo-headline"><%= themeConfig.siteName %></a>
+            <div class="mdui-toolbar-spacer"></div>
+            <button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '深色样式切换', position: 'left'}" id="DarkStyle"><i class="mdui-icon material-icons">brightness_4</i></button>
+        </div>
+    </div>
+</header>
+
+<nav id="drawer" class="mdui-drawer mdui-drawer-full-height mdui-drawer-close">
+    <ul class="mdui-list">
+        <% menus.forEach(function(menu) { %><% if (menu.openType === 'External') { %>
+            <a href="<%= menu.link %>" class="menu" target="_blank"><li class="mdui-list-item mdui-ripple"><%= menu.name %></li></a><% } else { %><a href="<%= menu.link %>" class="menu"><li class="mdui-list-item mdui-ripple"><%= menu.name %></li></a><% } %>
+        <% }); %>
+    </ul>
+</nav>

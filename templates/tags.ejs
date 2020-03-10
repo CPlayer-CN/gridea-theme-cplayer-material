@@ -1,0 +1,25 @@
+<html>
+<head>
+<%- include('./includes/head', { siteTitle: themeConfig.siteName }) %>
+</head>
+<body>
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-blue-grey mdui-theme-accent-blue mdui-theme-layout-dark">
+<%- include('./includes/header') %>
+
+<main class="mdui-container mdui-m-t-2">
+    <div class="mdui-card">
+        <div class="mdui-card-primary">
+            <div class="mdui-card-primary-title">标签列表</div>
+        </div>
+        <div class="mdui-card-actions">
+            <% tags.forEach((tag) => { %>
+                <a href="<%= tag.link %>" class="mdui-chip"><span class="mdui-chip-title"><%= tag.name %></span></a>
+            <% }); %>
+        </div>
+    </div>
+</main>
+
+<%- include('./includes/footer') %>
+
+</body>
+</html>
