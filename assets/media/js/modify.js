@@ -2,14 +2,13 @@
 hljs.initHighlightingOnLoad()
 
 // 深色样式
-// 手动切换
-$("#DarkStyle").on("click",function() {
+function toggleStyle() {
     if (localStorage.getItem("theme") == 'dark') {
         setStyleLight();
     } else {
-        setStyleDark()
+        setStyleDark();
     }
-});
+}
 function setStyleDark() {
     $('body').addClass('mdui-theme-layout-dark');
     localStorage.setItem("theme", "dark");
@@ -21,10 +20,12 @@ function setStyleLight() {
 if ("undefined" != typeof Storage) {
     "dark" === localStorage.getItem("theme") && setStyleDark();
 }
-var time = (new Date).getHours();
-if('6' < time && time < '18') {
-    setStyleLight()
-};
+if ("light" != typeof Storage) {
+    "light" === localStorage.getItem("theme") && setStyleLight();
+}
+$('#DarkStyle').click(function() {
+    toggleStyle();
+});
 
 // 返回顶部
 $('body').append('<a id="to-top" class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-ripple mdui-fab-hide"><i class="mdui-icon material-icons mdui-text-color-white">expand_less</i></a>');

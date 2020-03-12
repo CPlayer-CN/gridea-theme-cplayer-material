@@ -54,3 +54,7 @@ html {
 figure {
     outline: none;
 }
+
+.mdui-theme-layout-dark .hljs {
+    padding: 0;
+}
