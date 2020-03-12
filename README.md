@@ -12,6 +12,7 @@
 - 在配置中加入`是否在白天强制亮色样式`选项。
 - 去除多余的 `index.js` 文件。
 - 统一暗色样式和亮色样式的高亮样式。
+- 添加`顶置文章`的样式。<!--<i class="mdui-icon material-icons">import_contacts</i>-->
 
 # 参考、使用或引用
 - [MDUI](https://www.mdui.org)
