@@ -1,21 +1,33 @@
 // 初始化
-var $$ = mdui.JQ
 hljs.initHighlightingOnLoad()
 
 // 深色样式
 // 手动切换
-$$("#DarkStyle").on("click",function() {
-    $$("body").toggleClass("mdui-theme-layout-dark");
+$("#DarkStyle").on("click",function() {
+    if (localStorage.getItem("theme") == 'dark') {
+        setStyleLight();
+    } else {
+        setStyleDark()
+    }
 });
-$$(function() {
-    var time = (new Date).getHours();
-    if('6' < time &&time < '18') {
-        $$("html body").removeClass("mdui-theme-layout-dark");
-    };
-});
+function setStyleDark() {
+    $('body').addClass('mdui-theme-layout-dark');
+    localStorage.setItem("theme", "dark");
+}
+function setStyleLight() {
+    $('body').removeClass('mdui-theme-layout-dark');
+    localStorage.setItem("theme", "light");
+}
+if ("undefined" != typeof Storage) {
+    "dark" === localStorage.getItem("theme") && setStyleDark();
+}
+var time = (new Date).getHours();
+if('6' < time && time < '18') {
+    setStyleLight()
+};
 
 // 返回顶部
-$$('body').append('<a id="to-top" class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-ripple mdui-fab-hide"><i class="mdui-icon material-icons mdui-text-color-white">expand_less</i></a>');
+$('body').append('<a id="to-top" class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-ripple mdui-fab-hide"><i class="mdui-icon material-icons mdui-text-color-white">expand_less</i></a>');
 $(function() {
 	var toTop = $("#to-top"),
     toTopHide = function() {
@@ -37,3 +49,8 @@ $(function() {
 		}, 500)
 	})
 });
+
+// 文章图片放大
+window.addEventListener('load', function () {
+    Lightense('#post .mdui-card-content img');
+}, false);
