@@ -55,3 +55,16 @@ $(function() {
 window.addEventListener('load', function () {
     Lightense('#post .mdui-card-content img');
 }, false);
+
+// 文章列表页面瀑布流。
+function masonry() {
+    // 初始化 masonry
+    $('.mdui-row-xs-1').masonry({
+        itemSelector: '.mdui-col',
+        horizontalOrder: true
+    });
+}
+masonry()
+$('.mdui-col').imagesLoaded( function() {
+    masonry()
+});

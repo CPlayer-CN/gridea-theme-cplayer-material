@@ -10,7 +10,7 @@
             <% posts.forEach(function(post) { %>
                 <%if (post.date.indexOf(year) !== -1) { %>
                     <article class="post">
-                        <a href="<%= post.link %>" class="mdui-typo-title-opacity"><%= post.title %></a> - <span class="mdui-typo-body-1-opacity"><%= post.dateFormat %></span>
+                        <span class="mdui-typo-body-1-opacity"><%= post.dateFormat %></span> | <a href="<%= post.link %>" class="mdui-typo-title-opacity"><%= post.title %></a>
                     </article>
                 <% } %>
             <% }); %>

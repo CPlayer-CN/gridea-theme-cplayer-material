@@ -1,12 +1,3 @@
-#index .mdui-card-media {
-    background-size: cover;
-    height: 35vh;
-}
-#post .mdui-card-media {
-    background-size: cover;
-    height: 50vh;
-}
-
 .mdui-theme-layout-dark #drawer {
     background-color: #424242;
 }
@@ -56,5 +47,5 @@ figure {
 }
 
 .mdui-theme-layout-dark .hljs {
-    padding: 0;
+    padding: 0 !important;
 }
