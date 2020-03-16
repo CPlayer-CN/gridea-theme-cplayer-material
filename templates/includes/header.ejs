@@ -12,7 +12,8 @@
 <nav id="drawer" class="mdui-drawer mdui-drawer-full-height mdui-drawer-close">
     <ul class="mdui-list">
         <% menus.forEach(function(menu) { %><% if (menu.openType === 'External') { %>
-            <a href="<%= menu.link %>" class="menu" target="_blank"><li class="mdui-list-item mdui-ripple"><%= menu.name %></li></a><% } else { %><a href="<%= menu.link %>" class="menu"><li class="mdui-list-item mdui-ripple"><%= menu.name %></li></a><% } %>
+            <a href="<%= menu.link %>" target="_blank"><li class="mdui-list-item mdui-ripple"><%= menu.name %></li></a><% } else { %><a href="<%= menu.link %>" class="menu"><li class="mdui-list-item mdui-ripple"><%= menu.name %></li></a><% } %>
         <% }); %>
+        <a href="https://github.com/CPlayer-CN/gridea-theme-cplayer-material" class="spread"><li class="mdui-list-item mdui-ripple">主题主页</li></a>
     </ul>
 </nav>

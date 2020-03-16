@@ -10,7 +10,11 @@
 
 <main class="mdui-container mdui-typo mdui-m-t-2">
     <section class="mdui-card">
-        <% if (post.feature) { %><div class="mdui-card-media" style="background-image: url('<%= post.feature %>');"></div><% } %>
+        <% if (post.feature) { %>
+        <div class="mdui-card-media">
+            <img src="<%= post.feature %>">
+        </div>
+        <% } %>
         <div class="mdui-card-primary">
             <div class="mdui-card-primary-title"><%= post.title %></div>
             <div class="mdui-card-primary-subtitle">发布于 <%= post.dateFormat %>，包含标签 <% post.tags.forEach(function(tag) { %><a href="<%= tag.link %>" class="post-tags"># <%= tag.name %></a><% }); %>。</div>
@@ -22,8 +26,6 @@
             <div class="mdui-card-header-subtitle"><%- themeConfig.siteDescription %></div>
         </div>
     </section>
-    <% if (post.prevPost && !post.hideInList) { %><a href="<%= post.prevPost.link %>" mdui-tooltip="{content: '上一篇', position: 'right'}"><i class="mdui-icon material-icons">arrow_back</i><%= post.prevPost.title %></a><% } %>
-    <% if (post.nextPost && !post.hideInList) { %><a href="<%= post.nextPost.link %>" mdui-tooltip="{content: '下一篇', position: 'left'}" class="mdui-float-right"><%= post.nextPost.title %><i class="mdui-icon material-icons">arrow_forward</i></a><% } %>
 
       <% if (typeof commentSetting !== 'undefined' && commentSetting.showComment) { %>
             <% if (commentSetting.commentPlatform === 'gitalk') { %>
@@ -35,6 +37,11 @@
             <% } %>
       <% } %>
 </main>
+
+<nav class="mdui-container mdui-m-t-2 mdui-m-b-2">
+    <% if (post.prevPost && !post.hideInList) { %><a href="<%= post.prevPost.link %>" mdui-tooltip="{content: '上一篇', position: 'right'}"><button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-color-theme-accent mdui-ripple mdui-m-r-1"><i class="mdui-icon material-icons">arrow_back</i></button><%= post.prevPost.title %></a><% } %>
+    <% if (post.nextPost && !post.hideInList) { %><a href="<%= post.nextPost.link %>" mdui-tooltip="{content: '下一篇', position: 'left'}" class="mdui-float-right"><%= post.nextPost.title %><button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-color-theme-accent mdui-ripple mdui-m-l-1"><i class="mdui-icon material-icons">arrow_forward</i></button></a><% } %>
+</nav>
 
 <%- include('./includes/footer') %>
 

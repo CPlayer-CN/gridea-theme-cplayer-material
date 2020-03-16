@@ -68,3 +68,9 @@ masonry()
 $('.mdui-col').imagesLoaded( function() {
     masonry()
 });
+
+// 文章 a 标签
+$('#post main a').prop({
+    target:"_blank",
+    rel:"nofollow noopener noreferrer"
+});

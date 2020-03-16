@@ -49,3 +49,18 @@ figure {
 .mdui-theme-layout-dark .hljs {
     padding: 0 !important;
 }
+
+.mdui-theme-layout-dark#post nav a {
+    text-decoration: none;
+    color: #fff;
+}
+#post nav a {
+    text-decoration: none;
+    color: #000;
+}
+
+#drawer .spread {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}

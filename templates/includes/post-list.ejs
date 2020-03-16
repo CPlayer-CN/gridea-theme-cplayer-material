@@ -3,7 +3,7 @@
         <div class="mdui-card">
             <% if (post.feature) { %>
             <div class="mdui-card-media">
-                <img src="<%= post.feature %>">
+                <img src="<%= post.feature %>" onerror="this.src='<%= post.feature %>';">
                 <% if (post.isTop) { %>
                 <div class="mdui-card-menu">
                     <i mdui-tooltip="{content: '顶置', position: 'left'}" class="mdui-icon material-icons mdui-text-color-theme-accent">star</i>
