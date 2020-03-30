@@ -7,13 +7,13 @@
     <div class="mdui-card-content">
         <% years.forEach(function(year) { %>
             <h2 class="mdui-typo-display-1"><%- year %></h2>
-            <% posts.forEach(function(post) { %>
-                <%if (post.date.indexOf(year) !== -1) { %>
-                    <article class="post">
-                        <span class="mdui-typo-body-1-opacity"><%= post.dateFormat %></span> | <a href="<%= post.link %>" class="mdui-typo-title-opacity"><%= post.title %></a>
-                    </article>
-                <% } %>
-            <% }); %>
+            <article class="mdui-list">
+                <% posts.forEach(function(post) { %>
+                        <%if (post.date.indexOf(year) !== -1) { %>
+                            <a href="<%= post.link %>" class="mdui-list-item mdui-list-item-title mdui-ripple"><div class="mdui-list-item-content"><div class="mdui-list-item-title"><%= post.title %></div><div class="mdui-list-item-text mdui-list-item-one-line"><span class="mdui-text-color-theme-text"><%= post.dateFormat %></div></div></a>
+                        <% } %>
+                <% }); %>
+            </article>
         <% }); %>
     </div>
 </section>

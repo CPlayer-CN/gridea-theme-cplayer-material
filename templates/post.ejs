@@ -21,7 +21,7 @@
         </div>
         <div class="mdui-card-content"><%- post.content %></div>
         <div class="mdui-card-header">
-            <img class="mdui-card-header-avatar" src="/images/avatar.png"/>
+            <img class="mdui-card-header-avatar" src="<%= themeConfig.domain %>/images/avatar.png">
             <div class="mdui-card-header-title"><%= themeConfig.siteName %></div>
             <div class="mdui-card-header-subtitle"><%- themeConfig.siteDescription %></div>
         </div>
@@ -44,6 +44,16 @@
 </nav>
 
 <%- include('./includes/footer') %>
+<script src="<%= themeConfig.domain %>/media/js/highlight.min.js"></script>
+<script src="<%= themeConfig.domain %>/media/js/lightense.min.js"></script>
+<script>
+// 初始化-高亮代码
+hljs.initHighlightingOnLoad();
+// 初始化-文章图片放大
+window.addEventListener('load', function () {
+    Lightense('#post .mdui-card-content img');
+}, false);
+</script>
 
 </body>
 </html>

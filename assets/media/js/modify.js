@@ -1,27 +1,28 @@
-// 初始化
-hljs.initHighlightingOnLoad()
-
 // 深色样式
 function toggleStyle() {
-    if (localStorage.getItem("theme") == 'dark') {
-        setStyleLight();
+    if (localStorage.getItem("style") != '') {
+        if (localStorage.getItem("style") == 'dark') {
+            setStyleLight();
+        } else {
+            setStyleDark();
+        }
     } else {
-        setStyleDark();
+        var time = (new Date).getHours();
+        if('6' < time && time < '18') {
+            setStyleLight()
+        }
     }
 }
 function setStyleDark() {
     $('body').addClass('mdui-theme-layout-dark');
-    localStorage.setItem("theme", "dark");
+    localStorage.setItem("style", "dark");
 }
 function setStyleLight() {
     $('body').removeClass('mdui-theme-layout-dark');
-    localStorage.setItem("theme", "light");
-}
-if ("undefined" != typeof Storage) {
-    "dark" === localStorage.getItem("theme") && setStyleDark();
+    localStorage.setItem("style", "light");
 }
 if ("light" != typeof Storage) {
-    "light" === localStorage.getItem("theme") && setStyleLight();
+    "light" === localStorage.getItem("style") && setStyleLight();
 }
 $('#DarkStyle').click(function() {
     toggleStyle();
@@ -49,24 +50,6 @@ $(function() {
 			scrollTop: 0
 		}, 500)
 	})
-});
-
-// 文章图片放大
-window.addEventListener('load', function () {
-    Lightense('#post .mdui-card-content img');
-}, false);
-
-// 文章列表页面瀑布流。
-function masonry() {
-    // 初始化 masonry
-    $('.mdui-row-xs-1').masonry({
-        itemSelector: '.mdui-col',
-        horizontalOrder: true
-    });
-}
-masonry()
-$('.mdui-col').imagesLoaded( function() {
-    masonry()
 });
 
 // 文章 a 标签

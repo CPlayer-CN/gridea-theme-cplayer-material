@@ -13,6 +13,22 @@
 <%- include('./includes/pagination') %>
 
 <%- include('./includes/footer') %>
+<script src="<%= themeConfig.domain %>/media/js/masonry.pkgd.min.js"></script>
+<script src="<%= themeConfig.domain %>/media/js/imagesloaded.pkgd.min.js"></script>
+<script>
+// 初始化-文章列表页面瀑布流。
+function masonry() {
+    // 初始化 masonry
+    $('.mdui-row-xs-1').masonry({
+        itemSelector: '.mdui-col',
+        horizontalOrder: true
+    });
+}
+masonry()
+$('.mdui-col').imagesLoaded( function() {
+    masonry()
+});
+</script>
 
 </body>
 </html>
